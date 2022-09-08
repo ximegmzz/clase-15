@@ -1,0 +1,436 @@
+@import "variables";
+
+//mapa
+$redes: (
+            instagram: rgb(201, 40, 118),
+            facebook:rgb(33, 33, 63),
+            );
+
+            @each $red,$color in $redes {
+                .red-#{$red}{
+                    color:$color !important;
+                }
+                
+            }
+
+//extend
+.tipo-color{
+    font-family: $tipografia;
+    color: $color-principal;
+}
+//MIXIN
+@mixin font-size-weight ($tamano, $negrita) {
+    font-size: $tamano;
+    font-weight: $negrita;    
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 5px;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+
+    /*Header de todas las paginas*/
+    header {
+        grid-area: header;
+        padding: 0px 0px 5px 0px;
+
+        /* Logo inicial imagen */
+        .imagenLogo {
+            display: block;
+            margin: 0px auto;
+            width: 300px;
+            height: auto;
+        }
+    }
+
+    /*Nav de todas las paginas*/
+    nav {
+        grid-area: nav;
+
+        .navbar-expand-lg {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+    
+
+            .me-auto {
+                margin: 5px 10px !important;
+            }
+
+            .items-nav {
+                @include font-size-weight(14px,500);
+                text-decoration: none;
+                color: $color-principal;
+                font-family: $tipografia;
+                
+
+            }
+
+            nav ul {
+                list-style-type: none;
+                flex-wrap: wrap;
+                display: flex;
+                padding: 0;
+
+                /* items de la lista del navegador */
+                nav ul li {
+                    display: inline-flex;
+                }
+            }
+        }
+
+    }
+
+    /*Main con cosas de todas las paginas*/
+    main {
+        grid-area: main;
+        margin:10px;
+
+        .encabezado1 {
+            @extend .tipo-color;
+            @include font-size-weight(30px,700);
+            padding: 5px 0px 5px 0px;
+            text-align: center;
+            margin: 0px;
+            
+            
+            letter-spacing: 3px;
+        }
+
+        .encabezado2 {
+            @extend .tipo-color;
+            @include font-size-weight(20px,400);
+            text-align: center;
+            margin: 10px;
+            padding: 0px 0px 10px 0px;
+
+        }
+
+        .encabezado3 {
+            @extend .tipo-color;
+            @include font-size-weight(20px,700);
+            text-align: center;
+            
+        }
+
+        .encabezado4 {
+            @extend .tipo-color;
+            @include font-size-weight(16px,400);
+            text-align: center;
+           
+
+            .encabezadoBold {
+                font-weight: 600;
+            }
+        }
+
+        .fondoGris {
+            background-color: rgb(235, 235, 236);
+            padding: 10px 0px 15px 0px;
+            margin: 10px 0px 15px 0px;
+        }
+
+        .fotos {
+
+            text-align: center;
+
+            .foto {
+                width: 100%;
+                height: auto;
+
+            }
+
+            .encabezado4-index {
+                @extend .tipo-color;
+                @include font-size-weight(20px,400);
+                text-align: center;
+                
+
+                .encabezado-bold{
+                    font-weight:600;
+                }
+
+            }
+        }
+
+        /*cosas de la pagina productos*/
+        .encabezadoAngosto {
+            margin: 0px 10px 15px 10px;
+        }
+
+        section table {
+            font-family: $tipografia;
+            font-size: 16px;
+            width: 90%;
+            table-layout: auto;
+            margin: 20px auto;
+            background-color: rgb(235, 235, 235);
+            border-radius: 10px;
+        }
+
+        .container {
+            font-family: $tipografia!important;
+            
+            .row {
+                .col {
+                    background-color: #ebebec;
+                    margin: 10px 20px;
+                    border-radius: 10px;
+                    
+                }
+
+                .fotoproducto {
+                    width: 70vw;
+                    padding: 15px;
+                    margin: 40px 15px 40px 15px;
+                    border-radius: 10px;
+                    text-align: center;
+
+                    .foto-2 {
+                        max-width: 150px;
+                        display: block;
+                        margin: 10px auto;
+                        border-radius: 10px;
+
+                    }
+
+                    .encabezado3-productos {
+                        @extend .tipo-color;
+                        @include font-size-weight(20px,700);
+                        text-align: center;
+                        
+                    }
+
+                    .encabezado4-productos {
+                        @extend .tipo-color;
+                        @include font-size-weight(16px,400);
+                        text-align: center;
+                        
+                    }
+
+                }
+            }
+        }
+
+        /*cosas de la pagina politicas de cambio, sobre nosotros y contacto*/
+        .encabezado5 {
+            @extend .tipo-color;
+            @include font-size-weight(16px,700);
+            margin: 10px 30px;
+        }
+
+        .encabezado6 {
+            @extend .tipo-color;
+            @include font-size-weight(16px,400);
+            margin: 10px 30px;
+
+            .encabezado7 {
+                @extend .tipo-color;
+                @include font-size-weight(16px,700);
+            }
+        }
+
+        .fotos-sobre-nosotros {
+            margin: 5px 15px !important;
+
+            .letra-fotos {
+                font-family: $tipografia !important;
+                font-weight: 500 !important;
+                color: #ffffff !important;
+                text-shadow: 1px 1px #000000 !important;
+
+            }
+
+            .carousel {
+                margin: 30px;
+            }
+
+        }
+
+        /*cosas específicas de la pagina contacto*/
+        .formulario-contacto-page {
+            background-color: #ebebec;
+            width: 400px;
+            border-radius: 10px;
+            margin: 10px auto;
+            font-family: $tipografia;
+
+            .contacto-page {
+                padding: 3rem;
+                overflow: hidden;
+                color: $color-principal;
+
+                .contacto-label-page {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 8px;
+                    font-weight: 600;
+                }
+
+                .contacto-input2-page {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 8px;
+                    padding: 10px;
+                    border: none;
+                    background-color: $color-principal;
+                    color: #ffffff;
+                    font-size: 18px;
+                    border-radius: 3px;
+                }
+
+                .contacto-input-page {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 8px;
+                    border: none;
+                    border-bottom: 2px solid $color-principal;
+                    font-size: 20px;
+                    outline: none;
+                    color: $color-principal;
+                }
+            }
+
+        }
+    }
+
+    /* footer para todas las paginas excepto contacto */
+    footer {
+        grid-area: footer;
+        text-align: center;
+
+        .alert {
+            font-family: $tipografia;
+            
+            
+        }
+
+        .encabezado3-footer {
+            @extend .tipo-color;
+            @include font-size-weight(20px,700);
+            text-align: center;
+           
+        }
+
+        .encabezado4-footer {
+            @extend .tipo-color;
+            @include font-size-weight(16px,400);
+            text-align: center;
+            
+        }
+
+        .formulario-contacto {
+            background-color: #ebebec;
+            width: 400px;
+            border-radius: 10px;
+            margin: 10px auto;
+            font-family: $tipografia;
+
+            .contacto {
+                padding: 3rem;
+                overflow: hidden;
+                color: $color-principal;
+
+                /*no encontre donde está esta clase pero por las dudas no la borre*/
+                .contacto-textarea {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 8px;
+                }
+
+                .contacto-label {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 8px;
+                    font-weight: 600;
+                }
+
+                .contacto-input2 {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 8px;
+                    padding: 10px;
+                    border: none;
+                    background-color: $color-principal;
+                    color: #ffffff;
+                    font-size: 18px;
+                    border-radius: 3px;
+                }
+
+                .contacto-input {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 8px;
+                    border: none;
+                    border-bottom: 2px solid $color-principal;
+                    font-size: 20px;
+                    outline: none;
+                    color: $color-principal;
+                }
+            }
+
+        }
+    }
+
+}
+
+
+/*RESPONSIVE*/
+@media screen and (min-width:600px) {
+    .contenedor main section table {
+        width:50%;
+        height:auto;
+      }
+
+    .fotos {
+        display: flex;
+        justify-content: space-evenly;
+        .foto {
+            display: flex;
+            justify-content: space-evenly;
+            width: 48vw;
+            height: auto;
+        }
+        .encabezado4-index {
+            @include font-size-weight(16px,400);
+            text-align: center;
+            
+    
+        }
+    }
+
+    
+
+    
+
+    .productos {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .fotoProducto {
+        background-color: #ebebec;
+        width: 25vw;
+        margin: 40px;
+        border-radius: 10px;
+
+
+    }
+
+    .encabezadoAngosto {
+        margin: 0px 150px 15px 150px;
+    }
+
+    .formulario-contacto {
+
+        margin: 10px auto;
+
+
+    }
+
+}
